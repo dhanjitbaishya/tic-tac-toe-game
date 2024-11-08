@@ -1,38 +1,163 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: black;
+  /*background-image: url('/public/bg.jpg');*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height:110vh;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+.square {
+  background: rgba(113, 112, 110, 0.186);
+  /*box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);*/
+  color:white;
+  border: 2px solid #999999;
+  float: left;
+  font-size: 74px;
+  font-weight: none;
+  line-height: 34px;
+  margin:2px;
+  height: 100px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius:10%;
+  
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:white;
+  border-radius:10px;
+}
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+.board-row{
+  margin-left: 0px;
+}
+
+.board-container{
+  margin-top:50px;
+  
+}
+
+.board{
+  display:flex;
+  justify-content: center;
+  
+}
+
+.player-container{
+  display: flex;
+  margin-top:20px;
   color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.player-container .player-one{
+  
+  text-align:right;
+  width:40%;
+  
+  
+}
+.player-container .center{
+  width:20%;
+}
+.player-container .player-two{
+
+  width:40%;
+  
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reset-button{
+  padding: 10px 20px;
+  font-size: 1em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 35px;
+  cursor: pointer;
+  background-color: greenyellow;
+  border-radius:15px;
+}
+
+.button{
+  display:flex;
+  justify-content: center;
 }
