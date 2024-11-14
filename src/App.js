@@ -13,9 +13,11 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
+  const [scorePlayerOne, setScorePlayerOne] = useState(0);
+  const [scorePlayerTwo, setScorePlayerTwo] = useState(0);
 
   useEffect(() => {
-    if (!playerOne && !playerTwo) {  // Only prompt if names are not set
+    if (!playerOne && !playerTwo) {
       const p1 = prompt("Enter Player One's name:");
       const p2 = prompt("Enter Player Two's name:");
       setPlayerOne(p1 || "Player One");
@@ -23,6 +25,16 @@ export default function Board() {
     }
   }, [playerOne, playerTwo]);
   
+  useEffect(() => {
+    const winner = calculateWinner(squares);
+    if (winner) {
+      if (winner === "X") {
+        setScorePlayerOne(scorePlayerOne + 1);
+      } else {
+        setScorePlayerTwo(scorePlayerTwo + 1);
+      }
+    }
+  }, [squares]);
 
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -44,12 +56,12 @@ export default function Board() {
   }
 
   const winner = calculateWinner(squares);
-let status;
-if (winner) {
-  status = (winner === "X" ? playerOne : playerTwo) + " wins!";
-} else {
-  status = "Next player: " + (xIsNext ? "X" : "O") + " (" + (xIsNext ? playerOne : playerTwo) + ")";
-}
+  let status;
+  if (winner) {
+    status = (winner === "X" ? playerOne : playerTwo) + " wins!";
+  } else {
+    status = "Next player: " + (xIsNext ? "X" : "O") + " (" + (xIsNext ? playerOne : playerTwo) + ")";
+  }
 
 
   return (
@@ -59,6 +71,11 @@ if (winner) {
       <div className="player-one">{playerOne}</div>
       <div className="center"></div>
       <div className="player-two">{playerTwo}</div>
+      </div>
+      <div className="player-score">
+      <div className="player-one-score">{scorePlayerOne}</div>
+      <div className="player-center"></div>
+      <div className="player-two-score">{scorePlayerTwo}</div>
       </div>
       <div className="board">
       <div className="board-container">
