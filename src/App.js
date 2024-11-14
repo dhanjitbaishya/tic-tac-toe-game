@@ -56,10 +56,15 @@ export default function Board() {
   }
 
   const winner = calculateWinner(squares);
+  const isBoardFull = squares.every(square => square !== null);
   let status;
   if (winner) {
     status = (winner === "X" ? playerOne : playerTwo) + " wins!";
-  } else {
+  } 
+  else if (isBoardFull) {
+    status = "Tied!";
+  }
+  else {
     status = "Next player: " + (xIsNext ? "X" : "O") + " (" + (xIsNext ? playerOne : playerTwo) + ")";
   }
 
